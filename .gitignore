@@ -1,0 +1,12 @@
+/.venv
+/.vscode
+/.pytest_cache
+/build
+/dist
+/wheelhouse
+/tools/work
+*.egg-info
+__pycache__
+*.pyd
+*.so
+*.jar

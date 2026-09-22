@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minecraftpy"
+dynamic = ["version"]
+description = "A fast Minecraft framework for Python."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.14"
+authors = [{ name = "cqlsh" }]
+keywords = ["minecraft", "server", "framework", "plugins", "java", "bedrock", "asyncio"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: C++",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Games/Entertainment",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed"
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/cqlsh/minecraft.py"
+Repository = "https://github.com/cqlsh/minecraft.py"
+Issues = "https://github.com/cqlsh/minecraft.py/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=1.0",
+    "pyright>=1.1.400",
+    "setuptools>=77"
+]
+
+[tool.setuptools.packages.find]
+include = ["minecraft*"]
+
+[tool.setuptools.package-data]
+minecraft = ["py.typed", "*.pyi", "_native/*.pyi"]
+
+[tool.setuptools.dynamic]
+version = { attr = "minecraft.__version__" }
+
+[tool.cibuildwheel]
+build = ["cp314-*"]
+archs = ["auto64"]
+test-command = 'python -c "import minecraft"'
+
+[tool.pyright]
+pythonVersion = "3.14"
+pythonPlatform = "All"
+typeCheckingMode = "strict"
+include = ["minecraft", "tests", "benchmarks"]
+venvPath = "."
+venv = ".venv"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-ra --strict-markers"
+markers = ["client: tests that need a real Minecraft client"]
