@@ -22,8 +22,7 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#define PY_SSIZE_T_CLEAN
-#include <Python.h>
+#include <minecraft/position.hpp>
 
 namespace {
 
@@ -41,6 +40,7 @@ struct Submodule
 };
 
 const Submodule submodules[] = {
+    {"position", &minecraft::position_definition},
     {nullptr, nullptr}
 };
 
