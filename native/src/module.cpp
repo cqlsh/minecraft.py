@@ -28,6 +28,7 @@ DEALINGS IN THE SOFTWARE.
 namespace minecraft {
 
 extern PyModuleDef buffer_definition;
+extern PyModuleDef cipher_definition;
 
 }
 
@@ -48,6 +49,7 @@ struct Submodule
 
 const Submodule submodules[] = {
     {"buffer", &minecraft::buffer_definition},
+    {"cipher", &minecraft::cipher_definition},
     {"nbt", &minecraft::nbt_definition},
     {"position", &minecraft::position_definition},
     {nullptr, nullptr}
