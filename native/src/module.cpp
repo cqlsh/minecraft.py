@@ -22,6 +22,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
+#include <minecraft/nbt_python.hpp>
+#include <minecraft/position.hpp>
 #include <minecraft/position.hpp>
 
 namespace {
@@ -40,6 +42,7 @@ struct Submodule
 };
 
 const Submodule submodules[] = {
+    {"nbt", &minecraft::nbt_definition},
     {"position", &minecraft::position_definition},
     {nullptr, nullptr}
 };
