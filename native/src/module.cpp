@@ -24,7 +24,12 @@ DEALINGS IN THE SOFTWARE.
 
 #include <minecraft/nbt_python.hpp>
 #include <minecraft/position.hpp>
-#include <minecraft/position.hpp>
+
+namespace minecraft {
+
+extern PyModuleDef buffer_definition;
+
+}
 
 namespace {
 
@@ -42,6 +47,7 @@ struct Submodule
 };
 
 const Submodule submodules[] = {
+    {"buffer", &minecraft::buffer_definition},
     {"nbt", &minecraft::nbt_definition},
     {"position", &minecraft::position_definition},
     {nullptr, nullptr}
