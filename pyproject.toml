@@ -1,0 +1,46 @@
+[build-system]
+requires = []
+build-backend = "build_backend"
+backend-path = ["tools"]
+
+[project]
+name = "minecraft.py"
+description = "A modern, fast and fully typed framework for writing Minecraft server plugins in Python, for Java and Bedrock Edition."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.14.7"
+authors = [{ name = "cqlsh" }]
+keywords = ["minecraft", "plugin", "bukkit", "paper", "spigot", "folia", "velocity", "bedrock", "endstone", "nukkit"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: C++",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Games/Entertainment",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed"
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/cqlsh/minecraft.py"
+Repository = "https://github.com/cqlsh/minecraft.py"
+"Issue tracker" = "https://github.com/cqlsh/minecraft.py/issues"
+
+[tool.minecraft.build]
+packages = ["minecraft"]
+version-file = "minecraft/__init__.py"
+
+[[tool.minecraft.build.extensions]]
+name = "minecraft._speedups"
+standard = "c++20"
+sources = ["native/speedups/**/*.cpp"]
+include-dirs = ["native", "native/core", "native/python"]
