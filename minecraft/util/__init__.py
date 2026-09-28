@@ -9,3 +9,4 @@ Utility classes, mirroring ``org.bukkit.util``.
 """
 
 from .number_conversions import *
+from .vector import *
