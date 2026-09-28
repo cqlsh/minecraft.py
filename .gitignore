@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.so
+*.dylib
+*.egg-info/
+build/
+dist/
+wheelhouse/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# C++ (MSVC / GCC / Clang)
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.a
+*.exe
+*.dll
+*.pch
+*.gch
+
+# Java hosts (Gradle / Maven)
+.gradle/
+hosts/**/build/
+hosts/**/target/
+hosts/**/out/
+hosts/**/bin/
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Built plugins and local test servers
+*.pyz
+run/
+servers/
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+.vs/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
